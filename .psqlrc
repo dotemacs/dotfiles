@@ -9,14 +9,25 @@
 \encoding unicode
 
 -- Enable expanded output
-\x on
+\pset expanded on
+
+-- Show pretty unicode lines around rows and columns in select results
+\pset linestyle unicode
+
+-- Show pretty lines not just between columns and rows in select
+-- results, but around the outside too.
+\pset border 2
+
+-- Instead of displaying nulls as blank space, which look the same as
+-- empty strings (but are not the same!), show nulls as <<NULL>>.
+\pset null '<<NULL>>'
 
 -- Set timing on and see how long query took
 \timing
 
 -- pretty prompt
 \set PROMPT1 '%[%033[1;33m%]%M:%>%[%033[1;32m%] %n@%/%R%[%033[0m%]%# '
-\set PROMPT2 '>> '
+\set PROMPT2 '[more] %R >> '
 \set PROMPT3 '>> '
 
 -- Get rid of duplicate sequences in the history
